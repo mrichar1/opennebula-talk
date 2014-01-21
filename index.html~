@@ -1,11 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Opennebula</title>
+    <title>OpenNebula</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
+    
     <link rel="stylesheet" href="css/reveal.css"/>
     <link rel="stylesheet" href="css/theme/moon.css" id="theme"/>
     <link rel="stylesheet" href="extras.css"/>
@@ -22,106 +22,152 @@
     <div class="reveal">
       <div class="slides">
 
+<!-- BEGIN slide content -->
+
 	<section id="start">
 	  <img class="with-heading" src="opennebula-logo.svg"/>
-	  <h3>High Availability Virtualisation</h3>
+	  <h3>Highly Available Virtualisation</h3>
 	  <p>Matthew Richardson</p>
-    <p>March 2013</p>
+	  <p>March 2013</p>
 	</section>
-
-	<section id="intro">
+	
+	<section id="what">
 	  <section>
 	    <h2>What do we want?</h2>
 	  </section>
-  </section>
-
-  <section id="availability">
-    <section>
+	</section>
+	
+	<section id="availability">
+	  <section>
 	    <h2>Availability</h2>
-      <ul class="fragment">
-        <li>Guests should always be running</li>
-        <li>Migrations should be live</li>
-        <li>Hosting faults shouldn't affect guests</li>
-      </ul>
-    </section>
-  </section>
+	    <ul class="fragment">
+              <li>Guests should always be running</li>
+              <li>Migrations should be live</li>
+              <li>No scheduled downtime</li>
+	    </ul>
+	  </section>
+	</section>
+	
+	<section id="redundancy">
+	  <section>
+	    <h2>Redundancy</h2>
+	    <ul class="fragment">
+              <li>Host failures shouldn't matter</li>
+              <li>Disk images should be replicated</li>
+              <li>Buildings can (sometimes) burn down</li>
+	    </ul>
+	  </section>
+	</section>
+	
+	<section id="flexibility">
+	  <section>
+            <h2>Flexibility</h2>
+            <ul class="fragment">
+              <li>Load balancing, monitoring, scheduling </li>
+              <li>Easy scaleability</li>
+	      <li>Automate as much as possible</li>
+            </ul>
+	  </section>
+	</section>
+	
+	<section id="how">
+	  <section>
+            <h2>How do we get it?</h2>
+	  </section>
+	</section>
+	
+	<section id="virtualisation">
+	  <section>
+            <h2>Virtualisation</h2>
+	  </section>
+	  <section>
+	    <img src="libvirtlogo.png"/>
+            <h2>Libvirt &amp; qemu/KVM</h2>
+            <ul class="fragment">
+              <li>Handles live migrations</li>
+              <li>Hugely configurable</li>
+              <li>Guest OS agnostic</li>
+            </ul>
+	  </section>
+	</section>
+	
+	<section id="disk">
+	  <section>
+            <h2>Storage</h2>
+	  </section>
+	  <section>
+	    <img src="ceph-logo.svg"/>
+	    <h2>Ceph (rados)</h2>
+	    <ul class="fragment">
+	      <li>Network block devices</li>
+	      <li>Distributed &amp; replicated data</li>
+	      <li>Massively scaleable</li>
+	      <li>qemu integration</li>
+	    </ul>
+	  </section>
+	</section>
 
-  <section id="redundancy">
-    <section>
-      <h2>Redundancy</h2>
-      <ul class="fragment">
-        <li>Host failures shouldn't matter</li>
-        <li>Disk images should be replicated</li>
-        <li>Buildings can (sometimes) burn down</li>
-      </ul>
-    </section>
-  </section>
+	<section id="cluster">
+	  <section>
+            <h2>Cluster Management</h2>
+	  </section>
+	  <section>
+	    <img src="opennebula-logo.svg"/>
+	    <h2>OpenNebula</h2>
+	    <ul class="fragment">
+	      <li>Management Interface</li>
+	      <li>Controls hosts, disks, networks, guests</li>
+	      <li>libvirt &amp; ceph integration</li>
+	    </ul>
+	  </section>
+	</section>
 
-    <section id="flexibility">
-      <section>
-        <h2>Flexibility</h2>
-        <ul class="fragment">
-          <li>Guests can grow, shrink or migrate</li>
-          <li>Hosts can be added or removed</li>
-          <li>Load balancing should be automatic</li>
-        </ul>
-      </section>
-    </section>
+	<section id="automation">
+	  <section>
+            <h2>Automation</h2>
+	  </section>
+	  <section>
+	    <h2>OpenNebula</h2>
+	    <ul class="fragment">
+	      <li>Resource creation from templates</li>
+	      <li>Failover monitoring: hosts &amp; guests</li>
+	      <li>Load-balancing &amp; guest placement</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h2>LCFG</h2>
+	    <ul class="fragment">
+	      <li>Component for resource creation (&amp; deletion)</li>
+	      <li>ONEDB backup and restore methods</li>
+	      <li>External DB integration</li>
+	    </ul>
+	</section>
 
-    <section id="technologies">
-      <section>
-        <h2>Technologies</h2>
-        <ul class="fragment">
-          <li>Virtualisation</li>
-          <li>Storage</li>
-          <li>Cluster Management</li>
-        </ul>
-      </section>
+	<section id="terminals">
+	  <section>
+	    <h2>Terminals</h2>
+	  </section>
+	  <section>
+	    <h3>opennebula</h3>
+	    <div class="terminal">
+	      <iframe class="terminal" src="http://localhost:4201"></iframe>
+	    </div>
+	  </section>
+	  <section>
+	    <h3>vmhost 1</h3>
+	    <iframe class="terminal" src="http://localhost:4202"></iframe>
+	  </section>
+	  <section>
+	    <h3>vmhost 2</h3>
+	    <iframe class="terminal" src="http://localhost:4203"></iframe>
+	  </section>
+	  <section>
+	    <h3>guest VM</h3>
+	    <iframe class="terminal" src="http://localhost:4204"></iframe>
+	  </section>
+	</section>
 
-    </section>
-
-    <section id="virtualisation">
-      <section>
-        <h2>Virtualisation</h2>
-      </section>
-      <section>
-        <h2>Libvirt &amp; qemu</h2>
-        <ul class="fragment">
-        <li>Handle live migration</li>
-        <li>Hugely configurable</li>
-        <li>Guest OS agnostic</li>
-        </ul>
-      </section>
-    </section>
-
-    <section id="disk">
-      <section>
-        <h2>Storage</h2>
-      </section>
-      <section>
-
-
-
-<section id="terminals">
-      <section>
-        <h2>Terminals</h2>
-      </section>
-      <section>
-        <h3>opennebula</h3>
-        <div class="terminal">
-        <iframe class="terminal" src="http://localhost:4201"></iframe>
-        </div>
-      </section>
-      <section>
-        <h3>vmhost 1</h3>
-        <iframe class="terminal" src="http://localhost:4202"></iframe>
-      </section>
-      <section>
-        <h3>vmhost 2</h3>
-        <iframe class="terminal" src="http://localhost:4203"></iframe>
-      </section>
-    </section>
-
+<!-- END Slide content -->
 
     </div> <!-- class=slides -->
     </div> <!-- class=reveal -->
