@@ -1,0 +1,4 @@
+#!/bin/sh
+
+shellinaboxd --localhost-only --no-beep --css=shellinabox.css --disable-ssl --port=$1 --css=shellinabox.css --service /:mrichar1:mrichar1:HOME:"ssh $2"
+

@@ -1,0 +1,9 @@
+Run launch-shells.sh
+
+Load talk in browser
+
+Login to ssh connections - root-ssh key?  .k5login ?
+
+opennebula: run 'export' command
+
+
