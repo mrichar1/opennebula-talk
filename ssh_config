@@ -7,6 +7,10 @@ Host w3295
   HostName w3295.see.ed.ac.uk
   ProxyCommand ssh -q nx.see.ed.ac.uk nc %h %p
 
+Host w4017
+  HostName w4017.see.ed.ac.uk
+  ProxyCommand ssh -q nx.see.ed.ac.uk nc %h %p
+
 
 Host *
 StrictHostKeyChecking no
