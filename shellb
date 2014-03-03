@@ -1,4 +1,5 @@
 #!/bin/sh
 
-shellinaboxd --localhost-only --no-beep --css=shellinabox.css --disable-ssl --port=$1 --css=shellinabox.css --service "/:mrichar1:mrichar1:/:KRB5CCNAME=${KRB5CCNAME} SSH_AUTH_SOCK=${SSH_AUTH_SOCK} /usr/bin/ssh -F ssh_config $2"
+CWD=$(pwd)
+shellinaboxd --localhost-only --css=shellinabox.css --disable-ssl --port=$1 --css=shellinabox.css --service "/:mrichar1:mrichar1:/:KRB5CCNAME=${KRB5CCNAME} SSH_AUTH_SOCK=${SSH_AUTH_SOCK} /usr/bin/ssh -F ${CWD}/ssh_config $2"
 
