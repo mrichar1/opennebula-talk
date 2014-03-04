@@ -1,9 +1,9 @@
 digraph Ceph {
 //Defaults
 
-graph [splines=true, overlap=false, sep=0.5, compound=true, rankdir=LR]
-node [labelloc=b]
-edge [dir="both", fontsize=12]
+graph [splines=true, overlap=false, sep=0.5, compound=true, rankdir=LR, bgcolor=transparent]
+node [labelloc=b, style=filled]
+edge [dir="both", fontsize=12, color=white]
 
 users
 

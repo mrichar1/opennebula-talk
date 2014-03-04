@@ -1,9 +1,9 @@
 digraph Ceph {
 //Defaults
 
-graph [splines=true, overlap=false, sep=0.5, compound=true, rankdir=LR]
-node [labelloc=b]
-edge [dir="both", fontsize=12]
+graph [splines=true, overlap=false, sep=0.5, compound=true, rankdir=LR, bgcolor=transparent]
+node [labelloc=b, fillcolor=white, style=filled]
+edge [dir="both", fontsize=12, color=white]
 
 pubnet [label="Public Network", shape=custom, shapefile="img/cloud.png"]
 
@@ -17,6 +17,7 @@ mon3 [shape=rectangle]
 subgraph cluster_client {
 rank=same;
 label="Client"
+style=filled
 wr1 [label="write()", shape=rectangle, color=black, fillcolor=limegreen, style=filled]
 wr2 [label="write()",shape=rectangle, color=black, fillcolor=deepskyblue, style=filled]
 wr3 [label="write()",shape=rectangle, color=black, fillcolor=tomato, style=filled]
@@ -28,21 +29,21 @@ style=invis;
 
 
 subgraph cluster_ds3 {
-style=normal;
+style=filled;
 label="Disk Server 3"
 osd4 [shape=rectangle, color=black, fillcolor=deepskyblue, style="filled"]
 osd5 [shape=rectangle, color=black, fillcolor=tomato, style="filled,dashed"]
 }
 
 subgraph cluster_ds2 {
-style=normal;
+style=filled;
 label="Disk Server 2"
 osd2 [shape=rectangle, color=black, fillcolor=tomato, style="filled"]
 osd3 [shape=rectangle, color=black, fillcolor=limegreen, style="filled,dashed"]
 }
 
 subgraph cluster_ds1 {
-style=normal;
+style=filled;
 label="Disk Server 1"
 osd0 [shape=rectangle, color=black, fillcolor=limegreen, style="filled"]
 osd1 [shape=rectangle, color=black, fillcolor=deepskyblue, style="filled,dashed"]
