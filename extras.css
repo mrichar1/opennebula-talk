@@ -12,3 +12,10 @@ height: 50%;
 border: 0px;
 background: transparent;
 }
+
+.reveal .fullimg {
+height: 95%;
+width: auto;
+border: 0px;
+background: transparent;
+ }

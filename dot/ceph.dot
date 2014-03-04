@@ -50,7 +50,7 @@ osd1 [shape=rectangle, color=black, fillcolor=deepskyblue, style="filled,dashed"
 
 } // cluster_disks
 
-privnet [label="Private Network", shape=custom, shapefile="img/cloud.png"]
+privnet [label="Ceph Network", shape=custom, shapefile="img/cloud.png"]
 
 
 pubnet->mon1 [tailport=n]
