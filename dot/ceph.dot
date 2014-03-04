@@ -1,0 +1,90 @@
+digraph Ceph {
+//Defaults
+
+graph [splines=true, overlap=false, sep=0.5, compound=true, rankdir=LR]
+node [labelloc=b]
+edge [dir="both", fontsize=12]
+
+pubnet [label="Public Network", shape=custom, shapefile="img/cloud.png"]
+
+subgraph cluster_mons {
+style=invis;
+mon1 [shape=rectangle]
+mon2 [shape=rectangle]
+mon3 [shape=rectangle]
+}
+
+subgraph cluster_client {
+rank=same;
+label="Client"
+wr1 [label="write_obj()", shape=rectangle, color=black, fillcolor=limegreen, style=filled]
+wr2 [label="write_obj()",shape=rectangle, color=black, fillcolor=deepskyblue, style=filled]
+wr3 [label="write_obj()",shape=rectangle, color=black, fillcolor=tomato, style=filled]
+r1 [label="read_obj()", shape=rectangle, color=black, fillcolor=tomato, style=filled]
+}
+
+subgraph cluster_disks {
+style=invis;
+
+
+subgraph cluster_ds3 {
+style=normal;
+label="Disk Server 3"
+osd4 [shape=rectangle, color=black, fillcolor=deepskyblue, style="filled"]
+osd5 [shape=rectangle, color=black, fillcolor=tomato, style="filled,dashed"]
+}
+
+subgraph cluster_ds2 {
+style=normal;
+label="Disk Server 2"
+osd2 [shape=rectangle, color=black, fillcolor=tomato, style="filled"]
+osd3 [shape=rectangle, color=black, fillcolor=limegreen, style="filled,dashed"]
+}
+
+subgraph cluster_ds1 {
+style=normal;
+label="Disk Server 1"
+osd0 [shape=rectangle, color=black, fillcolor=limegreen, style="filled"]
+osd1 [shape=rectangle, color=black, fillcolor=deepskyblue, style="filled,dashed"]
+}
+
+} // cluster_disks
+
+privnet [label="Private Network", shape=custom, shapefile="img/cloud.png"]
+
+
+pubnet->mon1 [tailport=n]
+pubnet->mon2 [tailport=n]
+pubnet->mon3 [tailport=n]
+
+wr1->pubnet [tailport="e", headport="w", color=limegreen, arrowtail=none]
+wr2->pubnet [tailport="e", headport="w", color=deepskyblue, arrowtail=none]
+wr3->pubnet [tailport="e", headport="w", color=tomato, arrowtail=none]
+
+r1->pubnet [tailport="e", headport="s", color=tomato, arrowhead=none, style=dashed]
+
+
+
+pubnet->osd0 [headport="w", tailport="e", color=limegreen, arrowtail=none]
+pubnet->osd2 [headport="w", tailport="e", color=deepskyblue, arrowtail=none]
+pubnet->osd4 [headport="w", tailport="e", color=tomato, arrowtail=none]
+
+pubnet->osd2 [headport="w", tailport="s", color=tomato, arrowhead=none, style=dashed]
+pubnet->osd5 [headport="w", tailport="s", color=tomato, arrowhead=none, style=dashed]
+
+
+osd0->privnet [tailport="e", headport="n", color=limegreen, arrowtail=none]
+osd1->privnet [tailport="e", headport="n", color=deepskyblue, arrowtail=none]
+osd2->privnet [tailport="e", headport="n", color=tomato, arrowtail=none]
+
+privnet->osd3 [headport="e", tailport="s", color=limegreen, arrowtail=none]
+privnet->osd4 [headport="e", tailport="s", color=deepskyblue, arrowtail=none]
+privnet->osd5 [headport="e", tailport="s", color=tomato, arrowtail=none]
+
+
+
+
+
+
+
+}
