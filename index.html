@@ -15,8 +15,7 @@
 
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
-      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-    </script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');</script>
   </head>
   <body>
     <div class="reveal">
@@ -26,7 +25,7 @@
 
 	<section id="start">
 	  <img class="with-heading" src="opennebula-logo.svg"/>
-	  <h3>Highly Available Virtualisation</h3>
+	  <h3>Virtualisation with Ceph and OpenNebula</h3>
 	  <p>Matthew Richardson</p>
 	  <p>March 2013</p>
 	</section>
@@ -35,39 +34,40 @@
 	  <section>
 	    <h2>What do we want?</h2>
 	  </section>
-	</section>
+  </section>
 
-	<section id="availability">
-	  <section>
-	    <h2>Availability</h2>
-	    <ul class="fragment">
-              <li>Guests should always be running</li>
-              <li>Migrations should be live</li>
-              <li>No scheduled downtime</li>
-	    </ul>
-	  </section>
-	</section>
+  <section id="wants">
+    <section>
+      <h2>Management-Speak</h2>
+      <p style="font-size:125%;"><i>"A highly available virtualisation pool that copes with hardware failure and service interruption, integrating aspects of autonomic decision-making, integrating with configuration management for both service and guest deployment, whilst remaining performant and cost-effective in comparison to physical hardware solutions."</i></p>
+    </section>
+    <section>
+      <h2>Availability</h2>
+      <ul class="fragment">
+        <li>Guests should always be running</li>
+        <li>Migrations should be live</li>
+        <li>No scheduled downtime</li>
+      </ul>
+    </section>
 
-	<section id="redundancy">
-	  <section>
-	    <h2>Redundancy</h2>
-	    <ul class="fragment">
-              <li>Host failures shouldn't matter</li>
-              <li>Disk images should be replicated</li>
-              <li>Buildings can (sometimes) burn down</li>
-	    </ul>
-	  </section>
-	</section>
+    <section>
+      <h2>Redundancy</h2>
+      <ul class="fragment">
+        <li>Hosts go down</li>
+        <li>Disks fail</li>
+        <li>Guests crash</li>
+      </ul>
+    </section>
 
-	<section id="flexibility">
-	  <section>
-            <h2>Flexibility</h2>
-            <ul class="fragment">
-              <li>Load balancing, monitoring, scheduling </li>
-              <li>Easy scaleability</li>
-	      <li>Automate as much as possible</li>
-            </ul>
-	  </section>
+    <section>
+      <h2>Flexibility</h2>
+      <ul class="fragment">
+        <li>Load balancing, monitoring, scheduling</li>
+        <li>Scaling must be easy</li>
+        <li>Automate as much as possible</li>
+        <li>Manual control available if needed</li>
+      </ul>
+    </section>
 	</section>
 
 	<section id="how">
@@ -83,7 +83,7 @@
 	  <section>
 	    <img src="libvirtlogo.png"/>
             <h2>Libvirt &amp; qemu/KVM</h2>
-            <ul class="fragment">
+            <ul>
               <li>Handles live migrations</li>
               <li>Hugely configurable</li>
               <li>Guest OS agnostic</li>
@@ -98,15 +98,17 @@
 	  <section>
 	    <img src="ceph-logo.svg"/>
 	    <h2>(rbd)</h2>
-	    <ul class="fragment">
+	    <ul>
 	      <li>Network block devices</li>
-	      <li>Distributed &amp; replicated data</li>
+	      <li>Distributed &amp; replicated</li>
 	      <li>Massively scaleable</li>
+        <li>Sparse data storage</li>
 	      <li>qemu integration</li>
+        <li>...</li>
 	    </ul>
 	  </section>
     <section>
-      <h2>Ceph in Action</h2>
+      <h3>Ceph in Action</h3>
       <img class="fullimg" src="dot/ceph.png"/>
     </section>
 	</section>
@@ -118,32 +120,63 @@
 	  <section>
 	    <img src="opennebula-logo.svg"/>
 	    <h2>OpenNebula</h2>
-	    <ul class="fragment">
-	      <li>Management Interface</li>
-	      <li>Controls hosts, disks, networks, guests</li>
-	      <li>libvirt &amp; ceph integration</li>
+	    <ul>
+	      <li>'Cloud Management Platform'</li>
+	      <li>Controls Resources:
+        <ul>
+          <li>VM Hosts</li>
+          <li>Disk Images</li>
+          <li>Guest VMs</li>
+          <li>Guest networking</li>
+        </ul>
+	      <li>Done with libvirt &amp; ceph integration</li>
 	    </ul>
 	  </section>
+	  <section>
+	    <h2>Useful Features</h2>
+	    <ul>
+	      <li>Resource creation from templates</li>
+	      <li>Failure monitoring: hosts &amp; guests</li>
+	      <li>Load-balancing &amp; guest placement</li>
+        <li>Can be turned off</li>
+	    </ul>
+	  </section>
+
+    <section>
+      <h3> OpenNebula in action</h3>
+      <img class="fullimg" src="dot/opennebula.png"/>
+    </section>
 	</section>
 
-	<section id="automation">
+	<section id="management">
 	  <section>
-            <h2>Automation</h2>
+      <h2>Cluster Management</h2>
 	  </section>
+
+    <section>
+      <h2>OpenNebula Sunstone</h2>
+	      <a href="https://localhost:8888" target="_blank"><img class="fullimg" src="sunstone.png"/></a>
+    </section>
+
 	  <section>
-	    <h2>OpenNebula</h2>
-	    <ul class="fragment">
-	      <li>Resource creation from templates</li>
-	      <li>Failover monitoring: hosts &amp; guests</li>
-	      <li>Load-balancing &amp; guest placement</li>
+	    <h2>Command-line</h2>
+	    <ul>
+	      <li>Similar functionality to Sunstone</li>
+        <li>Scriptable, parseable</li>
+        <li>'Personal preference'</li>
 	    </ul>
 	  </section>
+
+
 	  <section>
 	    <h2>LCFG</h2>
-	    <ul class="fragment">
-	      <li>Component for resource creation (&amp; deletion)</li>
-	      <li>ONEDB backup and restore methods</li>
-	      <li>External Inventory integration</li>
+	    <ul>
+	      <li>Component:</li>
+        <ul>
+          <li> Resource creation (&amp; deletion)</li>
+          <li>ONEDB backup and restore methods</li>
+        </ul>
+        <li>External Inventory integration</li>
 	    </ul>
 	  </section>
 	</section>
@@ -177,6 +210,17 @@
 	    <iframe class="terminal" src="http://localhost:4204"></iframe>
 	  </section>
 	</section>
+
+	<section id="future">
+	  <section>
+      <h2>Future Work</h2>
+      <ul>
+        <li>Scheduling &amp; ranking of guests</li>
+        <li>More clusters: research, teaching, development</li>
+        <li>Marketplace images (with cephfs?)</li>
+        <li>Use Openstack?</li>
+	  </section>
+
 
 <!-- END Slide content -->
 
