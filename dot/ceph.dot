@@ -17,10 +17,10 @@ mon3 [shape=rectangle]
 subgraph cluster_client {
 rank=same;
 label="Client"
-wr1 [label="write_obj()", shape=rectangle, color=black, fillcolor=limegreen, style=filled]
-wr2 [label="write_obj()",shape=rectangle, color=black, fillcolor=deepskyblue, style=filled]
-wr3 [label="write_obj()",shape=rectangle, color=black, fillcolor=tomato, style=filled]
-r1 [label="read_obj()", shape=rectangle, color=black, fillcolor=tomato, style=filled]
+wr1 [label="write()", shape=rectangle, color=black, fillcolor=limegreen, style=filled]
+wr2 [label="write()",shape=rectangle, color=black, fillcolor=deepskyblue, style=filled]
+wr3 [label="write()",shape=rectangle, color=black, fillcolor=tomato, style=filled]
+r1 [label="read()", shape=rectangle, color=black, fillcolor=tomato, style=filled]
 }
 
 subgraph cluster_disks {
