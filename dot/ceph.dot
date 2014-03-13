@@ -9,9 +9,9 @@ pubnet [label="Public Network", shape=custom, shapefile="img/cloud.png"]
 
 subgraph cluster_mons {
 style=invis;
-mon1 [shape=rectangle]
-mon2 [shape=rectangle]
-mon3 [shape=rectangle]
+mon1 [shape=rectangle, fillcolor=lightgrey]
+mon2 [shape=rectangle, fillcolor=lightgrey]
+mon3 [shape=rectangle, fillcolor=lightgrey]
 }
 
 subgraph cluster_client {
