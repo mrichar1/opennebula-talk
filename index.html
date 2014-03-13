@@ -39,7 +39,7 @@
   <section id="wants">
     <section>
       <h2>Management-Speak</h2>
-      <p style="font-size:125%;"><i>"A highly available virtualisation pool that copes with hardware failure and service interruption, integrating aspects of autonomic decision-making, integrating with configuration management for both service and guest deployment, whilst remaining performant and cost-effective in comparison to physical hardware solutions."</i></p>
+      <p style="font-size:125%;"><i>"A <strong>highly available</strong> virtualisation pool that copes with <strong>hardware failure</strong> and <strong>service interruption</strong>, integrating aspects of autonomic decision-making, using <strong>configuration management</strong> for both service and guest deployment, whilst remaining <strong>performant</strong> and <strong>cost-effective</strong> in comparison to physical hardware solutions."</i></p>
     </section>
     <section>
       <h2>Availability</h2>
@@ -99,7 +99,7 @@
 	    <img src="ceph-logo.svg"/>
 	    <h3>(rbd)</h3>
 	    <ul>
-	      <li>Network-accessible block devices</li>
+	      <li>Network block devices</li>
 	      <li>Distributed &amp; replicated</li>
 	      <li>Scaleable (automatically)</li>
         <li>Sparse disk images</li>
@@ -121,7 +121,7 @@
 	    <img src="opennebula-logo.svg"/>
 	    <ul>
 	      <li>'Cloud Management Platform'</li>
-	      <li>Controls Resources:
+	      <li>Controls Resources:</li>
         <ul>
           <li>VM Hosts</li>
           <li>Disk Images</li>
@@ -134,22 +134,23 @@
 	  <section>
 	    <h2>Useful Features</h2>
 	    <ul>
+        <li>Relatively simple to set up</li>
 	      <li>Resource creation from templates</li>
-	      <li>Failure monitoring: hosts &amp; guests</li>
+	      <li>Failure monitoring & hooks</li>
 	      <li>Load-balancing &amp; guest placement</li>
         <li>Can be turned off</li>
 	    </ul>
 	  </section>
 
     <section>
-      <h3> OpenNebula in action</h3>
+      <h3>OpenNebula in action</h3>
       <img class="fullimg" src="dot/opennebula.png"/>
     </section>
 	</section>
 
 	<section id="management">
 	  <section>
-      <h2>Cluster Management</h2>
+      <h2>Management Tools</h2>
 	  </section>
 
     <section>
@@ -175,7 +176,7 @@
           <li> Resource creation (&amp; deletion)</li>
           <li>ONEDB backup and restore methods</li>
         </ul>
-        <li>External Inventory integration</li>
+        <li>External inventory integration</li>
 	    </ul>
 	  </section>
 	</section>
@@ -185,15 +186,15 @@
 	    <h2>Demo (?)</h2>
     </section>
 	  <section>
-	    <h3>LCFG</h3>
-	    <div class="terminal">
-	      <iframe class="terminal" src="http://localhost:4205"></iframe>
-	    </div>
-	  </section>
-	  <section>
 	    <h3>opennebula</h3>
 	    <div class="terminal">
 	      <iframe class="terminal" src="http://localhost:4201"></iframe>
+	    </div>
+	  </section>
+	  <section>
+	    <h3>LCFG</h3>
+	    <div class="terminal">
+	      <iframe class="terminal" src="http://localhost:4205"></iframe>
 	    </div>
 	  </section>
 	  <section>
@@ -213,10 +214,11 @@
 	<section id="future">
       <h2>Future Work</h2>
       <ul>
-        <li>Scheduling &amp; ranking of guests</li>
+        <li>Advanced guest placement</li>
         <li>More clusters: research, teaching, development</li>
-        <li>Marketplace images (with cephfs?)</li>
+        <li>Wider use: shared LCFG config</li>
         <li>Use a different Management Platform?</li>
+      </ul>
 	  </section>
 
 	<section id="questions">
